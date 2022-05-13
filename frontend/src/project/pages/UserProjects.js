@@ -1,4 +1,5 @@
 import React from 'react';
+import {useParams} from 'react-router-dom';
 
 import ProjectList from '../components/ProjectList';
 
@@ -52,12 +53,18 @@ const PROJECTS_DUMMY = [
 
     }]
   }
-];
+]
 
-const Projects = () => {
+const UserProjects = () => {
+  const userId = useParams().userId;
+
+  const clickedUserProjects = PROJECTS_DUMMY.filter((item) => {
+    return item.creatorId === userId
+  })
+
   return (
-    <ProjectList items={PROJECTS_DUMMY} />
+   <ProjectList items={clickedUserProjects} />
   )
 };
 
-export default Projects;
+export default UserProjects;
