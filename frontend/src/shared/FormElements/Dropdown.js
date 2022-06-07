@@ -16,8 +16,8 @@ const Dropdown = (props) => {
 
   return (
     <div>
-      <label htmlFor={id}>{label}}</label>
-      <select name='category' id={id} value={select} onChange={selectChangeHandler}>
+      <label htmlFor={id}>{label}</label>
+      <select name={id} id={id} value={select} onChange={selectChangeHandler}>
         {renderedOptions}
       </select>
     </div>

@@ -1,16 +1,20 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 
 import Input from '../../shared/FormElements/Input';
 import Dropdown from '../../shared/FormElements/Dropdown';
+import Checkbox from '../../shared/FormElements/Checkbox';
 import {validate, VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH} from '../../shared/validators';
 
 const NewProject = () => {
   const [formValid, setFormValid] = useState(
     {
       title: false,
-      description: false
+      description: false,
+      language: false
     }
   );
+
+  const [checkboxValues, setCheckboxValues] = useState({});
 
   const updateInputValiHandler = (inputId, termValue, validators) => {
     setFormValid({
@@ -18,6 +22,23 @@ const NewProject = () => {
         [inputId]: validate(termValue, validators)
     })
   }
+
+  const checkboxValiHandler = useCallback((id, value) => {
+    setCheckboxValues(prev => ({
+      ...prev,
+      [id]: value
+    }))
+
+  }, [])
+
+  useEffect(() => {
+    setFormValid(prev => ({
+      ...prev,
+      language: Object.values(checkboxValues).some(value => value === true)
+    }))
+
+  }, [checkboxValues])
+
 
   // let formValidity;
   // useEffect(() => {
@@ -60,6 +81,22 @@ const NewProject = () => {
             label: 'Full Stack'
           }
           ]}
+      />
+      <div>Language: </div>
+      <Checkbox
+        label='Javascript'
+        id='js'
+        checkboxValiHandler={checkboxValiHandler}
+      />
+      <Checkbox
+        label='JAVA'
+        id='java'
+        checkboxValiHandler={checkboxValiHandler}
+      />
+      <Checkbox
+        label='Python'
+        id='python'
+        checkboxValiHandler={checkboxValiHandler}
       />
 
       <button disabled={!formValidity}>ADD NEW PROJECT</button>
