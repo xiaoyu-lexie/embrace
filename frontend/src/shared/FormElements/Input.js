@@ -3,16 +3,25 @@ import React, {useState} from 'react';
 import {validate} from '../validators';
 
 const Input = (props) => {
-  const [term, setTerm] = useState('');
+  const [term, setTerm] = useState(props.initialValue);
   const [termValid, setTermValid] = useState(false);
   const [focus, setFocus] = useState(false)
 
-  const {formValidHandler} = props;
+  // const {formValidHandler} = props;
+
+  // console.log('term', term)
 
   const termChangeHandler = (e) => {
     setTerm(e.target.value)
-    setTermValid(validate(e.target.value, props.validators))
-    formValidHandler(props.id, e.target.value, props.validators)
+
+    if (props.validators) {
+      setTermValid(validate(e.target.value, props.validators))
+    }
+
+    if (props.formValidHandler){
+      props.formValidHandler(props.id, e.target.value, props.validators)
+    }
+
   }
 
   const blurHandler = () => {

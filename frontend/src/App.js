@@ -1,11 +1,11 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import Projects from './project/pages/Projects';
 import NewProject from './project/pages/NewProject';
 import UpdateProject from './project/pages/UpdateProject';
 import UserProjects from './project/pages/UserProjects';
-import MainNavigation from './shared/Navigation/MainNavigation';
+import MainNavigation from './shared/Navigation/MainNavigation'
 
 
 const App = () => {

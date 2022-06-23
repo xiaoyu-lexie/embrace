@@ -10,7 +10,7 @@ const PROJECTS_DUMMY = [
     description: "this is a e-commerce website",
     imageUrl: 'https://assets.simpleviewinc.com/simpleview/image/fetch/c_limit,q_75,w_1200/https://assets.simpleviewinc.com/simpleview/image/upload/crm/sanmateoca/shutterstock_4189008910-9b68011a5056a36_9b6802fa-5056-a36a-0bbb53c8e971b411.jpg',
     language: 'JavaScript',
-    end: 'fullstack',
+    category: 'fullstack',
     github: 'https://github.com/xiaoyu-lexie?',
     creatorName: 'firstuser',
     creatorId: 'user1',
@@ -26,7 +26,7 @@ const PROJECTS_DUMMY = [
     description: "this is a second website",
     imageUrl: 'https://assets.simpleviewinc.com/simpleview/image/fetch/c_limit,q_75,w_1200/https://assets.simpleviewinc.com/simpleview/image/upload/crm/sanmateoca/shutterstock_4189008910-9b68011a5056a36_9b6802fa-5056-a36a-0bbb53c8e971b411.jpg',
     language: 'Java',
-    end: 'back-end',
+    category: 'back-end',
     github: 'https://github.com/xiaoyu-lexie',
     creatorId: 'user2',
     creatorName: 'seconduser',
@@ -43,7 +43,7 @@ const PROJECTS_DUMMY = [
     description: "this is a third website",
     imageUrl: 'https://assets.simpleviewinc.com/simpleview/image/fetch/c_limit,q_75,w_1200/https://assets.simpleviewinc.com/simpleview/image/upload/crm/sanmateoca/shutterstock_4189008910-9b68011a5056a36_9b6802fa-5056-a36a-0bbb53c8e971b411.jpg',
     language: 'JavaScript',
-    end: 'front-end',
+    category: 'front-end',
     github: 'https://github.com/xiaoyu-lexie',
     creatorId: 'user2',
     creatorName: 'seconduser',
@@ -63,7 +63,7 @@ const UserProjects = () => {
   })
 
   return (
-   <ProjectList items={clickedUserProjects} />
+   <ProjectList items={clickedUserProjects} showButtons={true}/>
   )
 };
 
